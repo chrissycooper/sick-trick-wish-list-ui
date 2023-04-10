@@ -19,8 +19,8 @@ class App extends Component {
     })
   }
 
-  addNewTrick() {
-    
+  addNewTrick = (newTrick) => {
+    this.setState({ tricks: [...this.state.tricks, newTrick] });
   }
 
 
@@ -28,7 +28,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Sick Trick Wish List</h1>
-        <Form />
+        <Form addNewTrick={this.addNewTrick}/>
         <Tricks tricks={this.state.tricks}/>
       </div>
     );
