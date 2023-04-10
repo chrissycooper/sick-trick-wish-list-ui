@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import './App.css';
 import Tricks from '../Tricks/Tricks';
+import getAllTricks from '../../apicalls';
 
 class App extends Component {
   constructor(){
@@ -11,7 +12,10 @@ class App extends Component {
   }
 
   componentDidMount(){
-
+    getAllTricks()
+    .then(data => {
+      this.setState({tricks: data})
+    })
   }
 
 
