@@ -8,4 +8,14 @@ const getAllTricks = () => {
   })
 }
 
-export default getAllTricks;
+const postNewTrick = (newTrick) => {
+  return fetch('http://localhost:3001/api/v1/tricks', {
+    method: 'POST',
+    body: JSON.stringify(newTrick),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+}
+
+export {  getAllTricks, postNewTrick }

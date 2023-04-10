@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import './App.css';
 import Tricks from '../Tricks/Tricks';
-import getAllTricks from '../../apicalls';
+import { getAllTricks, postNewTrick } from '../../apicalls';
 import Form from '../Form/Form';
 
 class App extends Component {
@@ -20,7 +20,11 @@ class App extends Component {
   }
 
   addNewTrick = (newTrick) => {
-    this.setState({ tricks: [...this.state.tricks, newTrick] });
+    postNewTrick(newTrick)
+    .then(res => res.json())
+    .then( data =>
+      this.setState({ tricks: [...this.state.tricks, data ] })
+    )
   }
 
 
