@@ -8,7 +8,7 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      tricks: [{stance: 'regular', name: 'treflip', obstacle: "flat ground", tutorial: "a url!", id: 1 }]
+      tricks: []
     }
   }
 
@@ -17,6 +17,10 @@ class App extends Component {
     .then(data => {
       this.setState({tricks: data})
     })
+  }
+
+  addNewTrick() {
+    
   }
 
 

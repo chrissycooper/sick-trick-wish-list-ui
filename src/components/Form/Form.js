@@ -12,6 +12,10 @@ class Form extends React.Component {
     }
   }
 
+  handleChange = event => {
+    this.setState({[event.target.name]: event.target.value});
+  }
+
   render() {
     return (
       <form>
@@ -20,25 +24,27 @@ class Form extends React.Component {
           placeholder='Name of Trick'
           name='name'
           value={this.state.name}
+          onChange={event => this.handleChange(event)}
         />
         <input
           type='text'
-          placeholder='Name of Trick'
-          name='name'
-          value={this.state.name}
+          placeholder='Tutorial Link'
+          name='tutorial'
+          value={this.state.tutorial}
+          onChange={event => this.handleChange(event)}
         />
-        <select name='stance' id='stance'>
+        <select name='stance' id='stance' onChange={event => this.handleChange(event)}>
           <option value="" disabled selected>Select the stance</option>
-          <option value={this.state.stance}>Regular</option>
-          <option value={this.state.stance}>Switch</option>
+          <option value='regular'>Regular</option>
+          <option value='switch'>Switch</option>
         </select>
-        <select name='obstacle' id='obstacle'>
+        <select name='obstacle' id='obstacle' value={this.state.obstacle} onChange={event => this.handleChange(event)}>
         <option value="" disabled selected>Select the obstacle</option>
-          <option value={this.state.obstacle}>Flatground</option>
-          <option value={this.state.obstacle}>Rail</option>
-          <option value={this.state.obstacle}>Stairs</option>
-          <option value={this.state.obstacle}>Ledge</option>
-          <option value={this.state.obstacle}>Pool</option>
+          <option value='flatground'>Flatground</option>
+          <option value='rail'>Rail</option>
+          <option value='stairs'>Stairs</option>
+          <option value='ledge'>Ledge</option>
+          <option value='pool'>Pool</option>
         </select>
         <button>SEND IT!</button>
       </form>
