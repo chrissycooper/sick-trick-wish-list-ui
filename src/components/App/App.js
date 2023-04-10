@@ -2,6 +2,7 @@ import { Component } from 'react';
 import './App.css';
 import Tricks from '../Tricks/Tricks';
 import getAllTricks from '../../apicalls';
+import Form from '../Form/Form';
 
 class App extends Component {
   constructor(){
@@ -23,6 +24,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Sick Trick Wish List</h1>
+        <Form />
         <Tricks tricks={this.state.tricks}/>
       </div>
     );
