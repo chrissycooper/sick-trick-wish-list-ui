@@ -6,7 +6,7 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      tricks: []
+      tricks: [{stance: 'regular', name: 'treflip', obstacle: "flat ground", tutorial: "a url!", id: 1 }]
     }
   }
 

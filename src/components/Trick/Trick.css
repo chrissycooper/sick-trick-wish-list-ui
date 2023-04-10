@@ -1,0 +1,5 @@
+.trick {
+  box-sizing: border-box;
+  border: solid 2px lightskyblue;
+  padding: 10px;
+}
