@@ -1,12 +1,17 @@
 import React from 'react';
 import './Tricks.css';
+import Trick from '../Trick/Trick';
 
 
-const Tricks = () => {
+const Tricks = ({tricks}) => {
+  
+  const trickElements = tricks.map(trick => {
+    return <Trick trickData={trick} id={trick.id} key={trick.id}/>
+  })
 
   return (
     <div className='tricks-container'>
-      <h1>Hello</h1>
+      {trickElements}
     </div>
   )
 }
