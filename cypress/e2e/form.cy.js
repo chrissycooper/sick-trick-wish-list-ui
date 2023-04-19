@@ -2,22 +2,7 @@ describe('when data is put into the form, the value is reflected in that form in
   beforeEach(()=> {
     cy.intercept('GET', 'http://localhost:3001/api/v1/tricks', {
       statusCode: 200,
-      body: [
-          {
-            "stance": "regular",
-          "name": "manual",
-          "obstacle": "raised ground",
-          "tutorial": "a url!",
-          "id": "5"
-          },
-          {
-          "stance": "regular",
-          "name": "manual",
-          "obstacle": "raised ground",
-          "tutorial": "a url!",
-          "id": "5"
-          }
-        ]
+      fixture: "tricks.json"
     })
     .visit('http://localhost:3000/')
   })

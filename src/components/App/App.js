@@ -15,6 +15,7 @@ class App extends Component {
   componentDidMount(){
     getAllTricks()
     .then(data => {
+      console.log(data)
       this.setState({tricks: data})
     })
   }

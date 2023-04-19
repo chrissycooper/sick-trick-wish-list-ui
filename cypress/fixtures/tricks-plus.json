@@ -1,0 +1,23 @@
+[
+  {
+    "stance": "regular",
+  "name": "manual",
+  "obstacle": "raised ground",
+  "tutorial": "a url!",
+  "id": "5"
+  },
+  {
+  "stance": "regular",
+  "name": "manual",
+  "obstacle": "raised ground",
+  "tutorial": "a url!",
+  "id": "6"
+  },
+  {
+    "stance": "regular",
+    "name": "Shove-it",
+    "obstacle": "flatground",
+    "tutorial": "Shove-it tutorial link",
+    "id": "7"
+  }
+]

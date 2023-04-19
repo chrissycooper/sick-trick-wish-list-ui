@@ -2,22 +2,7 @@ describe('first visit display', () => {
 beforeEach(()=> {
   cy.intercept('GET', 'http://localhost:3001/api/v1/tricks', {
     statusCode: 200,
-    body: [
-        {
-          "stance": "regular",
-        "name": "manual",
-        "obstacle": "raised ground",
-        "tutorial": "a url!",
-        "id": "5"
-        },
-        {
-        "stance": "regular",
-        "name": "manual",
-        "obstacle": "raised ground",
-        "tutorial": "a url!",
-        "id": "5"
-        }
-      ]
+    fixture: "tricks.json"
     
   })
   .visit('http://localhost:3000/')
@@ -34,7 +19,6 @@ beforeEach(()=> {
     cy.get('[placeholder="Name of Trick"]')
     cy.get('button')
   })
-
   
   it('Should display the tricks', () => {
     cy.get('.tricks-container > :nth-child(1)')

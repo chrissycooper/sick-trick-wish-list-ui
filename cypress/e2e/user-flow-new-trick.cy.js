@@ -2,38 +2,26 @@ describe('Check the user flow of adding a new trick to the DOM.', () => {
   beforeEach(()=> {
     cy.intercept('GET', 'http://localhost:3001/api/v1/tricks', {
       statusCode: 200,
-      body: [
-          {
-            "stance": "regular",
-          "name": "manual",
-          "obstacle": "raised ground",
-          "tutorial": "a url!",
-          "id": "5"
-          },
-          {
-          "stance": "regular",
-          "name": "manual",
-          "obstacle": "raised ground",
-          "tutorial": "a url!",
-          "id": "5"
-          }
-        ]
+      fixture: "tricks.json"
     })
     .visit('http://localhost:3000/')
+
+    cy.intercept("POST", 'http://localhost:3001/api/v1/tricks', {
+      fixture: "post-trick.json"
+    })
   })
 
-  it('Should display the form', () => {
-    cy.get('[placeholder="Name of Trick"]')
+  it('Should have only two tricks at first', () => {
+    cy.contains('manual').should('exist')
+    cy.contains('Shove-It').should('not.exist')
     cy.get('button')
   })
 
-  it('Should reflect the value', () => {
-    cy.get('[placeholder="Name of Trick"]')
-    .type('Shove-it')
-    .should('have.value', 'Shove-it')
-  })
-
   it('Should be able to complete the form and submit', () => {
+    cy.intercept('GET', 'http://localhost:3001/api/v1/tricks', {
+      statusCode: 200,
+      fixture: "tricks-plus.json"
+    })
     cy.get('[placeholder="Name of Trick"]')
     .type('Shove-it')
     .should('have.value', 'Shove-it')
@@ -49,7 +37,8 @@ describe('Check the user flow of adding a new trick to the DOM.', () => {
     .select('flatground')
 
     cy.get('button').click()
+
+
     cy.contains('Shove-it')
   })
-
 })

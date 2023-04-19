@@ -1,0 +1,16 @@
+[
+  {
+    "stance": "regular",
+  "name": "manual",
+  "obstacle": "raised ground",
+  "tutorial": "a url!",
+  "id": "5"
+  },
+  {
+  "stance": "regular",
+  "name": "manual",
+  "obstacle": "raised ground",
+  "tutorial": "a url!",
+  "id": "6"
+  }
+]

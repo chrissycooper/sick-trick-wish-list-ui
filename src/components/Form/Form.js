@@ -12,7 +12,7 @@ class Form extends React.Component {
     }
   }
 
-  handleChange = event => {
+  handleChange = event => { //if i changed this to hooks, it could be setInputs inside thi function instead of set state,
     this.setState({[event.target.name]: event.target.value});
   }
 
