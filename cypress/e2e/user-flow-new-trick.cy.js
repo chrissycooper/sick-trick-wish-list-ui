@@ -7,7 +7,8 @@ describe('Check the user flow of adding a new trick to the DOM.', () => {
     .visit('http://localhost:3000/')
 
     cy.intercept("POST", 'http://localhost:3001/api/v1/tricks', {
-      fixture: "post-trick.json"
+      status: 201,
+      fixture: "post-trick.json" //you might not need to send the trick in the post because we're mimicking the backend
     })
   })
 
@@ -42,3 +43,5 @@ describe('Check the user flow of adding a new trick to the DOM.', () => {
     cy.contains('Shove-it')
   })
 })
+
+//error handling testing !

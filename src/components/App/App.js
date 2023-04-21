@@ -15,7 +15,6 @@ class App extends Component {
   componentDidMount(){
     getAllTricks()
     .then(data => {
-      console.log(data)
       this.setState({tricks: data})
     })
   }
@@ -28,13 +27,18 @@ class App extends Component {
     )
   }
 
+  deleteTrick = (id) => {
+    const updatedTricks = this.state.tricks.filter(trick => trick.id !== id)
+    this.setState({tricks: updatedTricks})
+  }
+
 
   render() {
     return (
       <div className="App">
         <h1>Sick Trick Wish List</h1>
         <Form addNewTrick={this.addNewTrick}/>
-        <Tricks tricks={this.state.tricks}/>
+        <Tricks tricks={this.state.tricks} deleteTrick={this.deleteTrick}/>
       </div>
     );
   }

@@ -63,7 +63,7 @@ class Form extends React.Component {
           <option value='switch'>Switch</option>
         </select>
         <select name='obstacle' id='obstacle' value={this.state.obstacle} onChange={event => this.handleChange(event)}>
-        <option value="" disabled defaultValue>Select the obstacle</option>
+        <option value="" defaultValue>Select the obstacle</option>
           <option value='flatground'>Flatground</option>
           <option value='rail'>Rail</option>
           <option value='stairs'>Stairs</option>

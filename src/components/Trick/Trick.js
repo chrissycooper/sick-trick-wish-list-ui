@@ -1,7 +1,7 @@
 import React from 'react';
 import './Trick.css';
 
-const Trick = ({trickData}) => {
+const Trick = ({trickData, deleteTrick}) => {
   const {stance, name, obstacle, tutorial, id} = trickData;
 
   return (
@@ -10,6 +10,7 @@ const Trick = ({trickData}) => {
       <p>{stance}</p>
       <p>{obstacle}</p>
       <p>{tutorial}</p>
+      <button onClick={() => deleteTrick(id)}>X</button>
     </div>
   )
 }
